@@ -19,20 +19,22 @@ export default function DynamicForm(): JSX.Element {
 
     const onFormSubmit = async (event: FormEvent): Promise<void> => {
         event.preventDefault();
-        const res = await fetch(
-            'https://ulventech-react-exam.netlify.app/api/form',
-            {
-                body: JSON.stringify({
-                    name: event.target.name.value
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST'
-            }
-        )
+        // const res = await fetch(
+        //     'https://ulventech-react-exam.netlify.app/api/form',
+        //     {
+        //         body: JSON.stringify({
+        //             name: event.target.name.value
+        //         }),
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         method: 'POST'
+        //     }
+        // )
 
-        const result = await res.json()
+        console.log(event)
+
+        // const result = await res.json()
         // result.user => 'Ada Lovelace'
     }
 
@@ -82,8 +84,8 @@ export default function DynamicForm(): JSX.Element {
 
     return (
         <div className="d-flex align-items-center justify-content-center">
-            <div className="w-50">
-            {renderFormField()}
+            <div className="w-50 bg-white p-5 rounded">
+                {renderFormField()}
             </div>
         </div>
     )
